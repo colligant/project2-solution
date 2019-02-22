@@ -213,6 +213,41 @@ def homography(pts1, pts2):
     # return nullspace
     return Vt[-1]
 
+def residual(up, u, vp, v):
+     a = (up-u)**2
+     b = (vp-v)**2
+     return np.sqrt(a + b)
+
+
+# def RANSAC(n_iter, pts1, pts2, sample_size, min_inliers, r=5):
+#     ''' pts1: np.array with shape (n_matches, 2) '''
+#     H_best = None
+#     inliers = []
+#     for i in range(n_iter):
+#         indices = np.random.choice(a=[False, True], size=pts1.shape[0])
+#         samp1 = pts1[indices, :]
+#         samp2 = pts2[indices, :]
+#         H_maybe = homography(samp1, samp2)
+#         n1 = pts1[~indices, :]
+#         n2 = pts2[~indices, :]
+#         Xprime = H_maybe @ n1.T # predict n1's points based on H_maybe, compare to locations in n2.
+#         Xprime = Xprime[:, :2] / Xprime[:, 2][:, np.newaxis]
+#         for pair1, pair2 in zip(Xprime, n2): 
+#             print(pair1, pair2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     pass
